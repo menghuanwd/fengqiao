@@ -13,6 +13,8 @@ Gem::Specification.new do |spec|
   spec.description   = %q{顺丰接口}
   spec.homepage      = "https://github.com/menghuanwd/fengqiao"
 
+  spec.license       = "MIT"
+
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
@@ -22,8 +24,7 @@ Gem::Specification.new do |spec|
     spec.metadata["source_code_uri"] = spec.homepage
     spec.metadata["changelog_uri"] = spec.homepage
   else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
+    raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
   end
 
   # Specify which files should be added to the gem when it is released.
