@@ -1,7 +1,8 @@
 module Fengqiao
   class Service
     def order(orderid, express_type, pay_method, j_company, j_contact, j_tel, j_address, d_company, d_address, d_contact, d_tel)
-      doc = package('OrderService', 'Order', 'orderid' => orderid,
+      package('OrderService', 'Order',
+        'orderid' => orderid,
         'express_type' => express_type,
         'is_docall' => '1',
         'j_company' => j_company,
@@ -15,30 +16,28 @@ module Fengqiao
         'pay_method' => pay_method,
         'custid' => Fengqiao.custid
       )
-
-      result = Request.new(doc.to_s).do
-      puts result
     end
 
     def query_search(orderid)
-      doc = package('OrderSearchService', 'OrderSearch', 'orderid' => orderid)
+      package('OrderSearchService', 'OrderSearch', 
+        'orderid' => orderid
+      )
 
-      result = Request.new(doc.to_s).do
-      puts result
     end
 
-    def order_confirm(orderid)
-      doc = package('OrderConfirmService', 'OrderConfirm', 'orderid' => orderid, 'dealtype' => '2')
-
-      result = Request.new(doc.to_s).do
-      puts result
+    def order_cancel(orderid)
+      package('OrderConfirmService', 'OrderConfirm', 
+        'orderid' => orderid, 
+        'dealtype' => '2'
+      )
     end
 
     def route(orderid)
-      doc = package('RouteService', 'RouteRequest', 'tracking_type' => '2', 'method_type' => '1', 'tracking_number' => orderid)
-
-      result = Request.new(doc.to_s).do
-      puts result
+      package('RouteService', 'RouteRequest', 
+        'tracking_type' => '2',
+        'method_type' => '1',
+        'tracking_number' => orderid
+      )
     end
 
     private
@@ -51,7 +50,7 @@ module Fengqiao
       body = element.add_element('Body')
       body.add_element(title, *args)
       
-      doc
+      Request.new(doc.to_s).do
     end
   end
 end

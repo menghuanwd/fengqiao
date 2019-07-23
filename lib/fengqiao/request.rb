@@ -10,8 +10,6 @@ module Fengqiao
     end
 
     def do
-      puts @req_xml
-
       str = @req_xml + Fengqiao.check_word
 
       verifyCode = Digest::MD5.base64digest(str)
