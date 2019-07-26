@@ -1,12 +1,8 @@
 # Fengqiao
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/fengqiao`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+顺丰快递常用接口，如有其它接口，请提PR或者联系本人更新
 
 ## Installation
-
-Add this line to your application's Gemfile:
 
 ```ruby
 gem 'fengqiao'
@@ -24,6 +20,7 @@ Or install it yourself as:
 
 ### Config
 
+在Rails的initialize中添加
 ```
 Fengqiao.code = ''
 Fengqiao.check_word = ''
@@ -37,7 +34,7 @@ Fengqiao::Service.new.order(order_id, *args)
 
 订单结果查询接口
 ```
-Fengqiao::Service.new.query_search(order_id')
+Fengqiao::Service.new.query_search(order_id)
 ```
 
 订单取消接口
